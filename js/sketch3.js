@@ -8,7 +8,7 @@ let fonts = [];
 
 var txtinput = 'The future is retro'
 var txtarea = ''
-var pdf;
+//var pdf;
 let loopval = 0;
 let randval;
 //let randomizer;
@@ -104,6 +104,9 @@ function setup() {
     createCanvas(CW,CH, SVG)
     canvascontainer.appendChild(document.getElementById('defaultCanvas0'))
 
+    pdf = createPDF();
+
+    pdf.beginRecord();
     // pdf = createPDF();
     // pdf.beginRecord();
 
@@ -190,7 +193,7 @@ function draw() {
         txtfnt = fonts[floor(slider3.value())]
     }
     //console.log(txtfnt)
-
+    
     if( txtsize <= 42) {
         strokeWeight(2)
     }
@@ -234,7 +237,7 @@ function draw() {
     // }
 
     function saveSVG() {
-        save("test.svg");
+        pdf.save();
         }
     // function printPDF() {
     //     pdf.save();
